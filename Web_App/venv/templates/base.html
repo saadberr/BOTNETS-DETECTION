@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<title>{% block page %}{% endblock %}</title>
+</head>
+<body>
+
+	<div class="card">
+  	<div class="card-header" style="color: red; font-weight: bold; font-size: 20px; text-align: center;">
+		{% block title %}TITLE{% endblock %}
+	</div>
+  	<div class="card-body" style="text-align: center;">
+    	<blockquote class="blockquote mb-0">
+      		<p style="font-family: fantasy;">{%block intro %}INTRO{% endblock %}</p>
+      		<footer class="blockquote-footer">{% block names %}Names{% endblock %}</footer>
+    	</blockquote>
+  	</div>
+	</div>
+
+
+	{% block alert %}{% endblock %}
+	<br>
+
+	<div class="features" style="margin-left: 470px;">
+	<form action="{{ url_for('predict') }}" method="POST">
+		<label style="font-weight: bold; color: darkblue; padding-left: 20px;">Entrer les données à propos du fichier à analyser : </label>
+		<br><br>
+		<input class="feature" type="text" name="sttl" placeholder="sttl">
+		&nbsp;
+		<input class="feature" type="text" name="ct_dst_src_ltm" placeholder="ct_dst_src_ltm">
+		<br><br>
+		<input class="feature" type="text" name="dttl" placeholder="dttl">
+		&nbsp;
+		<input class="feature" type="text" name="ct_state_ttl" placeholder="ct_state_ttl">
+		<br><br>
+		<input class="feature" type="text" name="swin" placeholder="swin">
+		&nbsp;
+		<input class="feature" type="text" name="ct_srv_dst" placeholder="ct_srv_dst">
+		<br><br>
+		<input class="feature" type="text" name="smean" placeholder="smean">
+		&nbsp;
+		<input class="feature" type="text" name="ct_dst_sport_ltm" placeholder="ct_dst_sport_ltm">
+		<br><br>
+		<input class="feature" type="text" name="service" placeholder="service : dhcp,dns,...">
+		&nbsp;
+		<input class="feature" type="text" name="ct_srv_src" placeholder="ct_srv_src">
+		<br><br>
+		<input class="feature" type="text" name="rate" placeholder="rate">
+		&nbsp;
+		<input class="feature" type="text" name="state" placeholder="state : INT,ACC,...">
+		<br><br>
+		<input class="feature" type="text" name="dload" placeholder="dload">
+		&nbsp;
+		<input class="feature" type="text" name="dmean" placeholder="dmean">
+		<br><br>
+		<input class="feature" type="text" name="sbytes" placeholder="sbytes">
+		&nbsp;
+		<input class="feature" type="text" name="dwin" placeholder="dwin">
+		<br><br>
+		<input class="feature" type="text" name="ct_src_dport_ltm" placeholder="ct_src_dport_ltm">
+		&nbsp;
+		<input class="feature" type="text" name="sload" placeholder="sload">
+		<br><br>
+		<input class="feature" type="text" name="tcprtt" placeholder="tcprtt">
+		&nbsp;
+		<input class="feature" type="text" name="ct_src_ltm" placeholder="ct_src_ltm">
+		<br>
+		<button type="submit" class="btn btn-outline-success" style="width: 100px; height: 50px; margin-left: 150px; font-size: 20px; margin-top: 12px; font-weight: bold;">Scan</button>
+		<br>
+	</form>
+	</div>
+
+
+	<br>
+	<figure class="figure" style="margin-left: 540px; height: 350px; width: 350px">
+  		<img src="../static/images/malware.jpg" class="figure-img img-fluid rounded" alt="...">
+	</figure>
+
+
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<style>
+body
+{
+	background-color: #dae3e2;
+}
+.feature
+{
+	font-family: Courier;
+}
+</style>
